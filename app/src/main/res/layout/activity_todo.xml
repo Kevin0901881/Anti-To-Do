@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="antitodo.kevinli.com.antitodo.Todo"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nothing"
+        android:textSize="16sp"
+        android:textColor="#FFF"
+        android:layout_centerInParent="true"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/list"
+        android:layout_above="@+id/actionbar"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/actionbar"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        android:layout_marginBottom="-3dp"
+        android:letterSpacing="0.1"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/date"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date"
+        android:textColor="#727A87"
+        android:textSize="12sp"
+        android:letterSpacing="0.1"
+        android:layout_marginTop="-3dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"/>
+
+    <ImageView
+        android:layout_width="22dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
+        android:src="@drawable/menu" />
+
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:id="@+id/actionbar"-->
+        <!--android:layout_alignParentBottom="true"/>-->
+
+</RelativeLayout>
