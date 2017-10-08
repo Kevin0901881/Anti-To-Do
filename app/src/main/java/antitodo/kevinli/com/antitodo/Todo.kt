@@ -22,7 +22,17 @@ class Todo : AppCompatActivity() {
         val dayOfWeek = sdf.format(day).toUpperCase()
         val fullDate = sdf2.format(day)
 
-        val doSomething = "Do something " + "" + " today"
+        val adjectives = arrayOf("disruptive", "challenging", "fun", "exciting", "new", "revolutionary",
+                "different", "important", "brave", "quirky", "pleasant", "funny", "productive", "ambitious",
+                "clever", "crazy", "generous", "romantic", "wild", "simple", "relaxing", "adventurous",
+                "smart", "light-hearted", "practical", "charming", "creative", "imaginative",
+                "kind", "social", "straightforward", "thoughtful", "active", "athletic", "brilliant",
+                "courageous", "flamboyant", "impressive", "insightful", "intelligent", "profound",
+                "purposeful", "realistic", "serious", "spontaneous", "sporty", "wise")
+        val rand = Random()
+        val number = rand.nextInt(adjectives.size - 1)
+
+        val doSomething = "Do something " + adjectives.get(number) + " today!"
 
         actionbar.text = dayOfWeek
         actionbar.typeface = catamaranSemi
@@ -30,6 +40,7 @@ class Todo : AppCompatActivity() {
         date.typeface = catamaranSemi
         nothing.text = doSomething
         nothing.typeface = catamaran
+        nothing.alpha = 0.5f
 
         supportActionBar!!.hide()
     }
