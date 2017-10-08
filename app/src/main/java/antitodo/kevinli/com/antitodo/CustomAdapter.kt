@@ -14,12 +14,12 @@ import kotlinx.android.synthetic.main.list_item.view.*
 class CustomAdapter : BaseAdapter {
 
     lateinit var c: Context
-    lateinit var cList: Array<String>
-    lateinit var cList2: Array<String>
-    lateinit var cListTime: Array<String>
+    lateinit var cList: ArrayList<String>
+    lateinit var cList2: ArrayList<String>
+    lateinit var cListTime: ArrayList<String>
     lateinit var inflater: LayoutInflater
 
-    constructor(c: Context, cList: Array<String>, cList2: Array<String>, cListTime: Array<String>) : super() {
+    constructor(c: Context, cList: ArrayList<String>, cList2: ArrayList<String>, cListTime: ArrayList<String>) : super() {
         this.c = c
         this.cList = cList
         this.cList2 = cList2
@@ -31,9 +31,9 @@ class CustomAdapter : BaseAdapter {
         val catamaran = Typeface.createFromAsset(c.assets, "fonts/Catamaran-Regular.ttf")
         val catamaranMed = Typeface.createFromAsset(c.assets, "fonts/Catamaran-Medium.ttf")
         var z = inflater.inflate(R.layout.list_item, null)
-        var title = z.title
-        var tags = z.tags
-        var time = z.time
+        val title = z.title
+        val tags = z.tags
+        val time = z.time
         title.text = cList[p0]
         tags.text = cList2[p0]
         time.text = cListTime[p0]
