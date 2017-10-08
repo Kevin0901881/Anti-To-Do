@@ -9,6 +9,8 @@ import java.util.*
 
 class Todo : AppCompatActivity() {
 
+    lateinit var cAdapter : CustomAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_todo)
@@ -43,5 +45,15 @@ class Todo : AppCompatActivity() {
         nothing.alpha = 0.5f
 
         supportActionBar!!.hide()
+
+        val sdf3 = SimpleDateFormat("hh:mm aa", java.util.Locale.getDefault())
+
+        val tags = arrayOf("#gym #workout")
+        val titles = arrayOf("Went to the gym")
+        val times = arrayOf(sdf3.format(day).toString())
+
+        cAdapter = CustomAdapter(applicationContext, titles, tags, times)
+        list.adapter = cAdapter
+
     }
 }
