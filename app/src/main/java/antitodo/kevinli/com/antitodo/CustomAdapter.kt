@@ -13,13 +13,13 @@ import kotlinx.android.synthetic.main.list_item.view.*
  */
 class CustomAdapter : BaseAdapter {
 
-    lateinit var c: Context
-    lateinit var cList: ArrayList<String>
-    lateinit var cList2: ArrayList<String>
-    lateinit var cListTime: ArrayList<String>
-    lateinit var inflater: LayoutInflater
+    var c: Context
+    var cList: ArrayList<String>
+    var cList2: ArrayList<ArrayList<String>>
+    var cListTime: ArrayList<String>
+    var inflater: LayoutInflater
 
-    constructor(c: Context, cList: ArrayList<String>, cList2: ArrayList<String>, cListTime: ArrayList<String>) : super() {
+    constructor(c: Context, cList: ArrayList<String>, cList2: ArrayList<ArrayList<String>>, cListTime: ArrayList<String>) : super() {
         this.c = c
         this.cList = cList
         this.cList2 = cList2
@@ -34,8 +34,12 @@ class CustomAdapter : BaseAdapter {
         val title = z.title
         val tags = z.tags
         val time = z.time
+        var cList2String = ""
         title.text = cList[p0]
-        tags.text = cList2[p0]
+        for (i in cList2[p0]) {
+            cList2String += "#" + i + "  "
+        }
+        tags.text = cList2String
         time.text = cListTime[p0]
         title.typeface = catamaranMed
         tags.typeface = catamaran

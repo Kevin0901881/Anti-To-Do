@@ -1,9 +1,11 @@
 package antitodo.kevinli.com.antitodo
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import kotlinx.android.synthetic.main.activity_todo.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -13,6 +15,7 @@ class Todo : AppCompatActivity() {
 
     lateinit var cAdapter : CustomAdapter
 
+    var allTags = ArrayList<ArrayList<String>>()
     var tags = ArrayList<String>()
     var titles = ArrayList<String>()
     var times = ArrayList<String>()
@@ -46,20 +49,38 @@ class Todo : AppCompatActivity() {
         desc.typeface = catamaran
         settings.typeface = catamaran
 
-        val sdf3 = SimpleDateFormat("hh:mm aa", java.util.Locale.getDefault())
+//        val sdf3 = SimpleDateFormat("hh:mm aa", java.util.Locale.getDefault())
 
-        titles.add("Went to the gym")
-        tags.add("#gym #workout")
-        times.add(sdf3.format(day).toString())
-        titles.add("Studied for Stats midterm")
-        tags.add("#midterm")
-        times.add(sdf3.format(day).toString())
-        titles.add("Cooked a delectable dinner")
-        tags.add("#food")
-        times.add(sdf3.format(day).toString())
+//        titles.add("Went to the gym")
+//        allTags.add("#gym #workout")
+//        times.add(sdf3.format(day).toString())
+//        titles.add("Studied for Stats midterm")
+//        allTags.add("#midterm")
+//        times.add(sdf3.format(day).toString())
+//        titles.add("Cooked a delectable dinner")
+//        allTags.add("#food")
+//        times.add(sdf3.format(day).toString())
 
-        cAdapter = CustomAdapter(applicationContext, titles, tags, times)
+        cAdapter = CustomAdapter(applicationContext, titles, allTags, times)
         list.adapter = cAdapter
+
+        menu_touch.setOnClickListener({v -> drawer_layout.openDrawer(left_drawer)})
+
+//        val rotate45 = AnimationUtils.loadAnimation(this, R.anim.rotate_add)
+//        val rotateBack45 = AnimationUtils.loadAnimation(this, R.anim.rotate_back_add)
+
+        add_touch.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(p0: View?) {
+                val intent = Intent(this@Todo, AddItem::class.java)
+                startActivityForResult(intent, 1)
+            }
+        })
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val catamaran = Typeface.createFromAsset(assets, "fonts/Catamaran-Regular.ttf")
 
         val adjectives = arrayOf("disruptive", "challenging", "fun", "exciting", "new", "revolutionary",
                 "different", "important", "brave", "quirky", "pleasant", "funny", "productive", "ambitious",
@@ -73,12 +94,24 @@ class Todo : AppCompatActivity() {
 
         val doSomething = "Do something " + adjectives.get(number) + " today!"
 
-        if (cAdapter.getCount() == 0) {
+        if (cAdapter.count == 0) {
             nothing.text = doSomething
             nothing.typeface = catamaran
             nothing.alpha = 0.5f
+        } else {
+            nothing.text = ""
         }
+    }
 
-        menu_touch.setOnClickListener({v -> drawer_layout.openDrawer(left_drawer)})
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                titles.add(data!!.getStringExtra("title"))
+                allTags.add(data.getStringArrayListExtra("tags"))
+                times.add(data.getStringExtra("time"))
+            }
+        }
     }
 }
