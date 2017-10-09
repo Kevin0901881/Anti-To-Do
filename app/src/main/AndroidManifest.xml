@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="antitodo.kevinli.com.antitodo.Todo">
+        <activity android:name=".Todo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -20,6 +20,8 @@ class Todo : AppCompatActivity() {
     override fun onBackPressed() {
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(left_drawer)
+        } else {
+            super.onBackPressed()
         }
     }
 
@@ -40,6 +42,9 @@ class Todo : AppCompatActivity() {
         actionbar.typeface = catamaranSemi
         date.text = fullDate
         date.typeface = catamaranSemi
+        app_name.typeface = catamaranSemi
+        desc.typeface = catamaran
+        settings.typeface = catamaran
 
         val sdf3 = SimpleDateFormat("hh:mm aa", java.util.Locale.getDefault())
 
