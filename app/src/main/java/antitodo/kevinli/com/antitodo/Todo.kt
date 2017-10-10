@@ -16,7 +16,6 @@ class Todo : AppCompatActivity() {
     lateinit var cAdapter : CustomAdapter
 
     var allTags = ArrayList<ArrayList<String>>()
-    var tags = ArrayList<String>()
     var titles = ArrayList<String>()
     var times = ArrayList<String>()
 
@@ -34,6 +33,7 @@ class Todo : AppCompatActivity() {
 
         val catamaran = Typeface.createFromAsset(assets, "fonts/Catamaran-Regular.ttf")
         val catamaranSemi = Typeface.createFromAsset(assets, "fonts/Catamaran-SemiBold.ttf")
+        val catamaranBold = Typeface.createFromAsset(assets, "fonts/Catamaran-Bold.ttf")
 
         val sdf = SimpleDateFormat("EEEE", java.util.Locale.getDefault())
         val sdf2 = SimpleDateFormat("MMM dd, YYYY", java.util.Locale.getDefault())
@@ -48,6 +48,8 @@ class Todo : AppCompatActivity() {
         app_name.typeface = catamaranSemi
         desc.typeface = catamaran
         settings.typeface = catamaran
+        thoughts.typeface = catamaranBold
+        notes.typeface = catamaran
 
 //        val sdf3 = SimpleDateFormat("hh:mm aa", java.util.Locale.getDefault())
 
