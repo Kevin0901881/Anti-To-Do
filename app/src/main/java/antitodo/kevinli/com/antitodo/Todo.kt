@@ -88,7 +88,7 @@ class Todo : AppCompatActivity() {
                 "smart", "light-hearted", "practical", "charming", "creative", "imaginative",
                 "kind", "social", "straightforward", "thoughtful", "active", "athletic", "brilliant",
                 "courageous", "flamboyant", "impressive", "insightful", "intelligent", "profound",
-                "purposeful", "realistic", "serious", "spontaneous", "sporty", "wise")
+                "purposeful", "realistic", "serious", "spontaneous", "sporty", "wise", "daring")
         val rand = Random()
         val number = rand.nextInt(adjectives.size - 1)
 

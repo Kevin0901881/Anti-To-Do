@@ -58,11 +58,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/close_touch"
         android:layout_above="@+id/add"
-        android:overScrollMode="never">
+        android:overScrollMode="never"
+        android:clipChildren="false">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:clipChildren="false">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -153,9 +155,14 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/tags_view">
+                android:clipChildren="false"
+                android:scrollbars="none">
 
-
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tags_view"
+                    android:orientation="horizontal"/>
 
             </HorizontalScrollView>
 
