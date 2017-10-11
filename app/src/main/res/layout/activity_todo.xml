@@ -31,7 +31,9 @@
             android:divider="@null"
             android:listSelector="@android:color/transparent"
             android:scrollbars="none"
-            android:overScrollMode="never"/>
+            android:overScrollMode="never"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -150,7 +152,7 @@
                 android:id="@+id/thoughts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TODAY'S THOUGHTS"
+                android:text="THOUGHTS OF THE DAY"
                 android:letterSpacing="0.1"
                 android:layout_marginLeft="30dp"
                 android:layout_marginStart="30dp"

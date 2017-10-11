@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/close_touch"
-        android:layout_above="@+id/add"
+        android:layout_above="@+id/buttons_layout"
         android:overScrollMode="never"
         android:clipChildren="false">
 
@@ -121,13 +121,13 @@
                 android:scrollHorizontally="true"
                 android:layout_below="@+id/tags_text"
                 android:backgroundTint="#4CAF50"
-                android:layout_toLeftOf="@+id/add_tag"
+                android:layout_toLeftOf="@+id/add_tag_image"
                 android:textCursorDrawable="@drawable/cursor_color"/>
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:id="@+id/add_tag"
+                android:id="@+id/add_tag_image"
                 android:layout_below="@+id/tags_text"
                 android:layout_marginTop="17dp"
                 android:layout_alignParentRight="true"
@@ -144,7 +144,7 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_below="@+id/tags_text"
-                android:id="@+id/add_touch"/>
+                android:id="@+id/add_tags_touch"/>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -197,15 +197,27 @@
 
     </ScrollView>
 
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="Add"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginBottom="25dp"
         android:layout_marginTop="20dp"
-        android:id="@+id/add"/>
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal"
+        android:id="@+id/buttons_layout">
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="55dp"
+            android:text="Add"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:id="@+id/add_item"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
